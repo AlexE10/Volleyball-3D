@@ -664,3 +664,235 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1215.581754 seconds.
+  path: Assets/ProBuilder Data/Default Material Palette.asset
+  artifactKey: Guid(789d7480539f09248932c2f9d06b7add) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ProBuilder Data/Default Material Palette.asset using Guid(789d7480539f09248932c2f9d06b7add) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26fa437af73f59e68e8c74cfa38c7532') in 0.747571 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 7.653351 seconds.
+  path: Assets/FreeSportsKIt_SA/Prefabs
+  artifactKey: Guid(a53c79aadb9f0d647823e60077e3abf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FreeSportsKIt_SA/Prefabs using Guid(a53c79aadb9f0d647823e60077e3abf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '38d516d51c1d2e9d73f2f93493ebe710') in 0.005732 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.045452 seconds.
+  path: Assets/FreeSportsKIt_SA/Prefabs/volleyball.prefab
+  artifactKey: Guid(bb0018446001beb4b9823dd1061bdf32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FreeSportsKIt_SA/Prefabs/volleyball.prefab using Guid(bb0018446001beb4b9823dd1061bdf32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db5b8d9dd029f84c96cb55b93f8c52d1') in 1.271070 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 13
+========================================================================
+Received Import Request.
+  Time since last request: 65.692522 seconds.
+  path: Assets/Prefabs
+  artifactKey: Guid(b0db60c8473c2a44f923b13390df1776) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs using Guid(b0db60c8473c2a44f923b13390df1776) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e42b73fe5da68345be8ffa9822023ab') in 0.001524 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 130.619003 seconds.
+  path: Assets/Prefabs/ScoreBoard.prefab
+  artifactKey: Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ScoreBoard.prefab using Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '282915620c4390489a3190fb1da43079') in 0.007310 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 11.398402 seconds.
+  path: Assets/Prefabs/ScoreBoard.prefab
+  artifactKey: Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ScoreBoard.prefab using Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '203760f652275b46d10bb9e985dbedb7') in 0.043607 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 10.228263 seconds.
+  path: Assets/Prefabs/ScoreBoard.prefab
+  artifactKey: Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ScoreBoard.prefab using Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bb24b4fc83108998245421ba5738876') in 0.027325 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 6.232054 seconds.
+  path: Assets/Prefabs/ScoreBoard.prefab
+  artifactKey: Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ScoreBoard.prefab using Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcc69c28aabb9bdaf9746cafed4dedba') in 0.029965 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 9.268923 seconds.
+  path: Assets/Prefabs/ScoreBoard.prefab
+  artifactKey: Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ScoreBoard.prefab using Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '874f90cfb9c0c3fec606b6985aebfd9a') in 0.026214 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 26.213127 seconds.
+  path: Assets/Prefabs/ScoreBoard.prefab
+  artifactKey: Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ScoreBoard.prefab using Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '00dd46c4aa0ba426fc5ec48ac0bc3de7') in 0.028647 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 15.544430 seconds.
+  path: Assets/Prefabs/ScoreBoard.prefab
+  artifactKey: Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ScoreBoard.prefab using Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8198d59586376cd5e1c23a0383ad23b5') in 0.021809 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 11.873646 seconds.
+  path: Assets/Prefabs/ScoreBoard.prefab
+  artifactKey: Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ScoreBoard.prefab using Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad07fb7fd3bcd44d1abdf5f2a76b1f7a') in 0.013176 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 7.219122 seconds.
+  path: Assets/Prefabs/ScoreBoard.prefab
+  artifactKey: Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ScoreBoard.prefab using Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd5e1d8cd8c95e4a7ce2d06e9c47f9c7') in 0.021597 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 9.872058 seconds.
+  path: Assets/Prefabs/ScoreBoard.prefab
+  artifactKey: Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ScoreBoard.prefab using Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d66b295c7f2f44f6b772dbfb4d3fd7b') in 0.027474 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 1.789322 seconds.
+  path: Assets/Prefabs/ScoreBoard.prefab
+  artifactKey: Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ScoreBoard.prefab using Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1307e7f6dc6cc5460bcfe4bc8521b0e1') in 0.027313 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 9.072997 seconds.
+  path: Assets/Prefabs/ScoreBoard.prefab
+  artifactKey: Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ScoreBoard.prefab using Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1ecc1605357f47e94721b669551129dc') in 0.023109 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 10.696826 seconds.
+  path: Assets/Prefabs/ScoreBoard.prefab
+  artifactKey: Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/ScoreBoard.prefab using Guid(e43bb360ea3ddb846b25d3afdbbfeb3a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0ebf22135d912b5440ebc74db57a47c5') in 0.022424 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 14
+========================================================================
+Received Import Request.
+  Time since last request: 414.470277 seconds.
+  path: Assets/Materials/ScoreBoardMaterial.mat
+  artifactKey: Guid(5b6a574c6bfce8742afd327df7a80045) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/ScoreBoardMaterial.mat using Guid(5b6a574c6bfce8742afd327df7a80045) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2d4efd42cef1e0683156f6e6900b231a') in 0.662789 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 1752.153718 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Drop Shadow.mat
+  artifactKey: Guid(749b9069dc4742c5bfa5c74644049926) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Drop Shadow.mat using Guid(749b9069dc4742c5bfa5c74644049926) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0b8caba4f31b40f14789973b9b9f7674') in 0.561654 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF.asset
+  artifactKey: Guid(8a89fa14b10d46a99122fd4f73fca9a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF.asset using Guid(8a89fa14b10d46a99122fd4f73fca9a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fe7713f649d8d05fa9448eaf3bc8466') in 0.641258 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.000079 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF - Outline.mat
+  artifactKey: Guid(f629c6e43dba4bf38cb74d8860150664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF - Outline.mat using Guid(f629c6e43dba4bf38cb74d8860150664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5038c6441c664812cf0ebabf309b9346') in 0.098222 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000128 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Sunny Days.mat
+  artifactKey: Guid(6522f30e342599e4e9dd4cc2cc03c830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Sunny Days.mat using Guid(6522f30e342599e4e9dd4cc2cc03c830) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5676261ee67c5a302d9a548aff2be8ca') in 0.340793 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF - Drop Shadow.mat
+  artifactKey: Guid(f2dcf029949142e28b974630369c8b4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF - Drop Shadow.mat using Guid(f2dcf029949142e28b974630369c8b4e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c72ffcd9f185b2ffbb975ab0684c5d13') in 0.047764 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF Glow.mat
+  artifactKey: Guid(d75b8f41e959450c84ac6e967084d3e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF Glow.mat using Guid(d75b8f41e959450c84ac6e967084d3e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b4791a491634dbe53b22c8cbe12a2c9') in 0.227771 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 13.361206 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset
+  artifactKey: Guid(125cb55b44b24c4393181402bc6200e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Bangers SDF.asset using Guid(125cb55b44b24c4393181402bc6200e6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f590d7f9585f2671e46c73eb2b9456a') in 0.069903 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 3.018550 seconds.
+  path: Assets/Movement/Materials/PitchMaterial.mat
+  artifactKey: Guid(97e398887edbd4344a70b88f57e98cc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Movement/Materials/PitchMaterial.mat using Guid(97e398887edbd4344a70b88f57e98cc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9c6ae75795fdd7263eeffebad032bf6') in 0.046945 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 914.722714 seconds.
+  path: Assets/volleyball-court-realist/source/Volleyball court realist.fbx
+  artifactKey: Guid(5c8803d5fa6b63a41b35aa56cae9bf23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/volleyball-court-realist/source/Volleyball court realist.fbx using Guid(5c8803d5fa6b63a41b35aa56cae9bf23) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9aaaaa2c586730a2bc95cd96906aa019') in 0.831208 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 72
+========================================================================
+Received Import Request.
+  Time since last request: 0.000087 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic Highway Sign SDF.asset
+  artifactKey: Guid(dc36b3fdc14f47ebb36fd484a67e268a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Electronic Highway Sign SDF.asset using Guid(dc36b3fdc14f47ebb36fd484a67e268a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1365ae1ad7bbf96ef5ad9b54a98dc9db') in 0.073124 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 15.652050 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Logo Scene.mat
+  artifactKey: Guid(c719e38f25a9480abd2480ab621a2949) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Logo Scene.mat using Guid(c719e38f25a9480abd2480ab621a2949) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b153534ca865124b2c6504e521bfb128') in 0.028629 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2

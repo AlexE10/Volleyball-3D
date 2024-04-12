@@ -568,3 +568,43 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 50661.922603 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Outline.mat
+  artifactKey: Guid(a00013af81304728b2be1f4309ee2433) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Resources/Fonts & Materials/Anton SDF - Outline.mat using Guid(a00013af81304728b2be1f4309ee2433) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '760ba66bd912a480845d70a98535e6f8') in 1.737497 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000126 seconds.
+  path: Assets/Movement/Materials/BallMaterial.mat
+  artifactKey: Guid(a1758adc935aeec45be3182988f59a8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Movement/Materials/BallMaterial.mat using Guid(a1758adc935aeec45be3182988f59a8e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be4e30e03bddc93d6fffd79e50464c88') in 0.200972 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 16.419968 seconds.
+  path: Assets/Movement/Materials/TestMaterial.mat
+  artifactKey: Guid(8f29fcbe8e2e887499c104583e71fc87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Movement/Materials/TestMaterial.mat using Guid(8f29fcbe8e2e887499c104583e71fc87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '207fab60e484b448a70807b9a486ccaa') in 0.051145 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 915.183012 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Materials/Crate - Surface Shader Scene.mat
+  artifactKey: Guid(e6b9b44320f4448d9d5e0ee634259966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Materials/Crate - Surface Shader Scene.mat using Guid(e6b9b44320f4448d9d5e0ee634259966) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f67a5f62dd42deefd4b85a7b6085c75b') in 0.553320 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 15.541850 seconds.
+  path: Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Surface Shader Scene.mat
+  artifactKey: Guid(aadd5a709a48466c887296bb5b1b8110) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/TextMesh Pro/Examples & Extras/Materials/Ground - Surface Shader Scene.mat using Guid(aadd5a709a48466c887296bb5b1b8110) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '643ea13a373918ac9a925b1a337726bf') in 0.044507 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
