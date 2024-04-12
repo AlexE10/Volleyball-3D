@@ -5,7 +5,7 @@ public class MenuScript : MonoBehaviour
 {
     public void OnStartGameClick()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("Field1");
     }
 
     public void OnHowToPlayClick()
