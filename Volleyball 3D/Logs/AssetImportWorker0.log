@@ -2386,3 +2386,11 @@ Received Import Request.
 Start importing Assets/Materials/SwithCharacterBackground.mat using Guid(60a9585e7f4698643aead54e89ff2190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9617eff8b073f7aff21f492da628e663') in 0.214663 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 1641.327720 seconds.
+  path: Assets/Materials/SwithCharacterBackground.mat
+  artifactKey: Guid(60a9585e7f4698643aead54e89ff2190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/SwithCharacterBackground.mat using Guid(60a9585e7f4698643aead54e89ff2190) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6a70eb8edbc5b8a9eefd9c8769243cd5') in 0.558574 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 2
