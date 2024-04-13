@@ -1215,6 +1215,7 @@ GameObject:
   - component: {fileID: 5639076927860393641}
   - component: {fileID: 1783124303119579685}
   - component: {fileID: 7738939790301799031}
+  - component: {fileID: 2660180172977104009}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -1367,6 +1368,23 @@ MonoBehaviour:
   upperkickRange: 10
   reflectedPointHeight: 50
   pathHeightForUpperkick: 0.3
+--- !u!114 &2660180172977104009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6564065161260280509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneId: 0
+  _assetId: 3811433116
+  serverOnly: 0
+  visibility: 0
+  hasSpawned: 0
 --- !u!1 &7417100008422637565
 GameObject:
   m_ObjectHideFlags: 0

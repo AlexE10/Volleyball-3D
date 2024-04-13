@@ -1,6 +1,7 @@
+using Mirror;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     public static bool CanMove { get; set; } = true;
     private bool ShouldJump => Input.GetKeyDown(jumpKey);
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         playerCamera = firstPersonCamera;
+        thirdPersonCamera = Camera.main;
         shotManager = GetComponent<ShotManager>();
 
         Cursor.lockState = CursorLockMode.Locked;

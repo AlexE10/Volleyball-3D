@@ -19,7 +19,9 @@ public class ShotManager : MonoBehaviour
 
     private void Start()
     {
+        ball = GameObject.Find("volleyball");   
         ballRigidbody = ball.GetComponent<Rigidbody>();
+        lowkickHelper = GameObject.Find("LowkickHelper");
         //playerPositionReflectedToNet = transform.position;
         //playerPositionReflectedToNet.z = 0f;
         //previousDistance = Vector3.Distance(transform.position, playerPositionReflectedToNet);
