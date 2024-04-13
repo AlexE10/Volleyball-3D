@@ -1,6 +1,9 @@
 using Mirror;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(NetworkTransformReliable))]
+[RequireComponent(typeof(Rigidbody))]
 public class PlayerController : NetworkBehaviour
 {
     public static bool CanMove { get; set; } = true;
@@ -36,7 +39,7 @@ public class PlayerController : NetworkBehaviour
 
     [Header("Camera settings")]
     [SerializeField] private Camera firstPersonCamera;
-    [SerializeField] private Camera thirdPersonCamera;
+    [SerializeField] public Vector3 playerCameraPosition;
 
     [Header("Interaction")]
     [SerializeField] private Vector3 interactionRayPoint = default;
@@ -45,10 +48,11 @@ public class PlayerController : NetworkBehaviour
 
     private Interactable currentInteractable;
 
-    private Animator animator;
+    [SerializeField] private CharacterController characterController;
 
-    private Camera playerCamera;
-    private ShotManager shotManager;
+    public Camera playerCamera;
+    public ShotManager shotManager;
+    private Animator animator;
 
     private Vector3 moveDirection;
     private Vector2 currentInput;
@@ -57,28 +61,53 @@ public class PlayerController : NetworkBehaviour
 
     private bool isFirstPerson = true;
 
-    private void Awake()
+    protected override void OnValidate()
     {
-        animator = GetComponent<Animator>();
-        playerCamera = firstPersonCamera;
-        thirdPersonCamera = Camera.main;
+        base.OnValidate();
+
+        if (characterController == null)
+            characterController = GetComponent<CharacterController>();
+
+        GetComponent<Rigidbody>().isKinematic = true;
+
+        characterController.enabled = false;
+        characterController.skinWidth = 0.02f;
+        characterController.minMoveDistance = 0f;
+
+        this.enabled = false;
+    }
+
+    public override void OnStartAuthority()
+    {
         shotManager = GetComponent<ShotManager>();
+        shotManager.ball = GameObject.FindWithTag("Ball");
+        shotManager.lowkickHelper = GameObject.FindWithTag("LowkickHelper");
+
+        animator = GetComponent<Animator>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        characterController.enabled = true;
+        this.enabled = true;
+    }
+
+    public override void OnStopAuthority()
+    {
+        this.enabled = false;
+        characterController.enabled = false;
     }
 
     void Update()
     {
+        if (!characterController.enabled)
+            return;
+
         if (CanMove)
         {
             HandleMovementInput();
             HandleMouseLook();
 
-            if (canToogleCamera)
-            {
-                ToggleCamera();
-            }
             if (canJump)
             {
                 HandleJump();
@@ -105,7 +134,7 @@ public class PlayerController : NetworkBehaviour
             isFirstPerson = !isFirstPerson;
 
             firstPersonCamera.gameObject.SetActive(isFirstPerson);
-            thirdPersonCamera.gameObject.SetActive(!isFirstPerson);
+            //thirdPersonCamera.gameObject.SetActive(!isFirstPerson);
         }
     }
 
@@ -130,10 +159,13 @@ public class PlayerController : NetworkBehaviour
 
     private void HandleMouseLook()
     {
-        rotationX -= Input.GetAxisRaw("Mouse Y") * lookSpeedY;
-        rotationX = Mathf.Clamp(rotationX, -upperLookLimit, lowerLookLimit);
-        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, transform.localRotation.y, 0f);
-        transform.rotation *= Quaternion.Euler(0f, Input.GetAxisRaw("Mouse X") * lookSpeedX, 0f);
+        if (playerCamera != null)
+        {
+            rotationX -= Input.GetAxisRaw("Mouse Y") * lookSpeedY;
+            rotationX = Mathf.Clamp(rotationX, -upperLookLimit, lowerLookLimit);
+            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, transform.localRotation.y, 0f);
+            transform.rotation *= Quaternion.Euler(0f, Input.GetAxisRaw("Mouse X") * lookSpeedX, 0f);
+        }
     }
 
     private void HandleJump()
@@ -187,17 +219,25 @@ public class PlayerController : NetworkBehaviour
         {
             currentInteractable.OnInteract();
 
-            animator.Play("Lowkick");
+            //animator.Play("Lowkick");
         }
     }
 
     private void ApplyFinalMovements()
     {
-        if (moveDirection.y > 0)
+        //if (moveDirection.y > 0)
+        //{
+        //    moveDirection.y -= gravity * Time.deltaTime;
+        //}
+
+        //transform.position += moveDirection * Time.deltaTime;
+
+
+        if (!characterController.isGrounded)
         {
             moveDirection.y -= gravity * Time.deltaTime;
         }
 
-        transform.position += moveDirection * Time.deltaTime;
+        characterController.Move(moveDirection * Time.deltaTime);
     }
 }

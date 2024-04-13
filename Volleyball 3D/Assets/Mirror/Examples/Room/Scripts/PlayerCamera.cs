@@ -23,6 +23,8 @@ namespace Mirror.Examples.NetworkRoom
                 mainCam.transform.SetParent(transform);
                 mainCam.transform.localPosition = new Vector3(0f, 3f, -8f);
                 mainCam.transform.localEulerAngles = new Vector3(10f, 0f, 0f);
+
+                Debug.Log("Start Camera");
             }
             else
                 Debug.LogWarning("PlayerCamera: Could not find a camera in scene with 'MainCamera' tag.");
@@ -32,6 +34,8 @@ namespace Mirror.Examples.NetworkRoom
         {
             if (mainCam != null)
             {
+                Debug.Log("Stop Camera");
+
                 mainCam.transform.SetParent(null);
                 SceneManager.MoveGameObjectToScene(mainCam.gameObject, SceneManager.GetActiveScene());
                 mainCam.orthographic = true;

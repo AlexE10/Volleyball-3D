@@ -5,8 +5,8 @@ public class ShotManager : MonoBehaviour
     [SerializeField] private float lowkickPower;
     [SerializeField] private float upperkickPower;
     [SerializeField] public GameObject ball;
-    [SerializeField] private Camera playerCamera;
-    [SerializeField] private GameObject lowkickHelper;
+    [SerializeField] public Camera playerCamera;
+    [SerializeField] public GameObject lowkickHelper;
     [SerializeField, Range(1, 20)] private float lowkickRange;
     [SerializeField, Range(1, 20)] private float upperkickRange;
     [SerializeField] private float reflectedPointHeight;

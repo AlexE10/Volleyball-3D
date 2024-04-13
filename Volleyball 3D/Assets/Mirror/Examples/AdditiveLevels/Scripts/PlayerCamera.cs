@@ -23,6 +23,8 @@ namespace Mirror.Examples.AdditiveLevels
                 mainCam.transform.SetParent(transform);
                 mainCam.transform.localPosition = new Vector3(0f, 3f, -8f);
                 mainCam.transform.localEulerAngles = new Vector3(10f, 0f, 0f);
+
+                Debug.Log("Start camera");
             }
             else
                 Debug.LogWarning("PlayerCamera: Could not find a camera in scene with 'MainCamera' tag.");

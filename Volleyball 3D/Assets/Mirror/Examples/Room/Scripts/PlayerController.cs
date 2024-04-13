@@ -69,18 +69,24 @@ namespace Mirror.Examples.NetworkRoom
             GetComponent<Rigidbody>().isKinematic = true;
 
             this.enabled = false;
+
+            Debug.Log("Validate");
         }
 
         public override void OnStartAuthority()
         {
             characterController.enabled = true;
             this.enabled = true;
+            Debug.Log("Start");
+
         }
 
         public override void OnStopAuthority()
         {
             this.enabled = false;
             characterController.enabled = false;
+            Debug.Log("Stop");
+
         }
 
         void Update()

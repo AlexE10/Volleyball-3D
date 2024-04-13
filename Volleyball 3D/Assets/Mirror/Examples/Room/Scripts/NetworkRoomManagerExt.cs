@@ -13,7 +13,6 @@ namespace Mirror.Examples.NetworkRoom
         [Header("Spawner Setup")]
         [Tooltip("Reward Prefab for the Spawner")]
         public GameObject rewardPrefab;
-
         public static new NetworkRoomManagerExt singleton => NetworkManager.singleton as NetworkRoomManagerExt;
 
         /// <summary>
