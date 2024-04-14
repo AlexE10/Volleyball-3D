@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8823550628348934733}
   - component: {fileID: 4484295118569687019}
   - component: {fileID: 3183101284954069466}
+  - component: {fileID: 1614333474794878875}
   m_Layer: 7
   m_Name: volleyball
   m_TagString: Ball
@@ -200,3 +201,15 @@ MonoBehaviour:
   serverOnly: 0
   visibility: 0
   hasSpawned: 0
+--- !u!114 &1614333474794878875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297383893473116859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9338396358d10948b6cf74bff34087c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

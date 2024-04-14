@@ -1,15 +1,34 @@
+using Mirror;
+using Mirror.Examples.NetworkRoom;
 using UnityEngine;
 
-public class OnCollisionHandler : MonoBehaviour
+public class OnCollisionHandler : NetworkBehaviour
 {
-    public bool ballDetected { get; set; } = false;
-
+    [ServerCallback]
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Ball"))
+        PlayerController[] controller = FindObjectsOfType<PlayerController>();
+
+        PlayerScore currentPlayScore;
+        if (collision.collider.tag == "0")
         {
-            ballDetected = true;
-            Debug.Log("Ball");
+            currentPlayScore = controller[0].GetComponent<PlayerScore>();
+        }
+        else
+        {
+            currentPlayScore = controller[1].GetComponent<PlayerScore>();
+        }
+
+        int otherIndex = 0;
+        if (currentPlayScore.index == 0)
+        {
+            otherIndex = 1;
+        }
+
+        if (collision.collider.tag == otherIndex.ToString())
+        {
+            Debug.Log("Merge");
+            currentPlayScore.UpdateScore(true);
         }
     }
 }

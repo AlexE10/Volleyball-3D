@@ -24,7 +24,7 @@ public class BallHandler : MonoBehaviour
         //Rigidbody rb = GetComponent<Rigidbody>();
         //rb.velocity = Vector3.zero;
         //initialPosition = newPosition;
-        if (collision.collider.CompareTag("Ground"))
+        if (collision.collider.CompareTag("0") || collision.collider.CompareTag("1"))
         {
             var startPositions = NetworkManager.startPositions;
 

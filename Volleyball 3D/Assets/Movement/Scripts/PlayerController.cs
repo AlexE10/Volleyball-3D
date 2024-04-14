@@ -1,4 +1,5 @@
 using Mirror;
+using Mirror.Examples.NetworkRoom;
 using Mirror.Examples.TankTheftAuto;
 using UnityEngine;
 using UnityEngine.ProBuilder.Shapes;
@@ -61,6 +62,7 @@ public class PlayerController : NetworkBehaviour
     public Camera playerCamera;
     public ShotManager shotManager;
     private Animator animator;
+    private PlayerScore playerScore;
 
     private Vector3 moveDirection;
     private Vector2 currentInput;
@@ -82,6 +84,7 @@ public class PlayerController : NetworkBehaviour
         characterController.skinWidth = 0.02f;
         characterController.minMoveDistance = 0f;
 
+        //GetComponent<PlayerScore>().enabled = false;
         GetComponent<ShotManager>().enabled = false;
         this.enabled = false;
     }
@@ -90,6 +93,7 @@ public class PlayerController : NetworkBehaviour
     {
         shotManager = GetComponent<ShotManager>();
         shotManager.ball = GameObject.FindWithTag("Ball");
+        playerScore = GetComponent<PlayerScore>();  
 
         Debug.Log("OnStartAuthority");
         shotManager.lowkickHelper = GameObject.FindWithTag("LowkickHelper");
@@ -103,6 +107,7 @@ public class PlayerController : NetworkBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        playerScore.enabled = true;
         shotManager.enabled = true;
         characterController.enabled = true;
         this.enabled = true;

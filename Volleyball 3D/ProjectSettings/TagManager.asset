@@ -8,6 +8,8 @@ TagManager:
   - Platform
   - LowkickHelper
   - Ground
+  - 1
+  - 0
   layers:
   - Default
   - TransparentFX
