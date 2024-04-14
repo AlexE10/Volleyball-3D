@@ -1,6 +1,12 @@
+using Mirror;
+using Mirror.Examples.TankTheftAuto;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
 
-public class PlayerController : MonoBehaviour
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(NetworkTransformReliable))]
+[RequireComponent(typeof(Rigidbody))]
+public class PlayerController : NetworkBehaviour
 {
     public static bool CanMove { get; set; } = true;
     private bool ShouldJump => Input.GetKeyDown(jumpKey);
@@ -35,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Camera settings")]
     [SerializeField] private Camera firstPersonCamera;
-    [SerializeField] private Camera thirdPersonCamera;
+    [SerializeField] public Vector3 playerCameraPosition;
 
     [Header("Interaction")]
     [SerializeField] private Vector3 interactionRayPoint = default;
@@ -44,10 +50,11 @@ public class PlayerController : MonoBehaviour
 
     private Interactable currentInteractable;
 
-    private Animator animator;
+    [SerializeField] private CharacterController characterController;
 
-    private Camera playerCamera;
-    private ShotManager shotManager;
+    public Camera playerCamera;
+    public ShotManager shotManager;
+    private Animator animator;
 
     private Vector3 moveDirection;
     private Vector2 currentInput;
@@ -56,27 +63,61 @@ public class PlayerController : MonoBehaviour
 
     private bool isFirstPerson = true;
 
-    private void Awake()
+    protected override void OnValidate()
     {
-        animator = GetComponent<Animator>();
-        playerCamera = firstPersonCamera;
+        base.OnValidate();
+
+        if (characterController == null)
+            characterController = GetComponent<CharacterController>();
+
+        GetComponent<Rigidbody>().isKinematic = true;
+
+        characterController.enabled = false;
+        characterController.skinWidth = 0.02f;
+        characterController.minMoveDistance = 0f;
+
+        GetComponent<ShotManager>().enabled = false;
+        this.enabled = false;
+    }
+
+    public override void OnStartAuthority()
+    {
         shotManager = GetComponent<ShotManager>();
+        shotManager.ball = GameObject.FindWithTag("Ball");
+
+        Debug.Log("OnStartAuthority");
+        shotManager.lowkickHelper = GameObject.FindWithTag("LowkickHelper");
+        shotManager.ballRigidbody = shotManager.ball.GetComponent<Rigidbody>();
+
+        //NetworkIdentity ballNetIdentity = shotManager.ball.GetComponent<NetworkIdentity>();
+        //ballNetIdentity.AssignClientAuthority(connectionToClient);
+
+        animator = GetComponent<Animator>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        shotManager.enabled = true;
+        characterController.enabled = true;
+        this.enabled = true;
+    }
+
+    public override void OnStopAuthority()
+    {
+        this.enabled = false;
+        characterController.enabled = false;
     }
 
     void Update()
     {
+        if (!characterController.enabled)
+            return;
+
         if (CanMove)
         {
             HandleMovementInput();
             HandleMouseLook();
 
-            if (canToogleCamera)
-            {
-                ToggleCamera();
-            }
             if (canJump)
             {
                 HandleJump();
@@ -103,7 +144,7 @@ public class PlayerController : MonoBehaviour
             isFirstPerson = !isFirstPerson;
 
             firstPersonCamera.gameObject.SetActive(isFirstPerson);
-            thirdPersonCamera.gameObject.SetActive(!isFirstPerson);
+            //thirdPersonCamera.gameObject.SetActive(!isFirstPerson);
         }
     }
 
@@ -128,10 +169,13 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMouseLook()
     {
-        rotationX -= Input.GetAxisRaw("Mouse Y") * lookSpeedY;
-        rotationX = Mathf.Clamp(rotationX, -upperLookLimit, lowerLookLimit);
-        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, transform.localRotation.y, 0f);
-        transform.rotation *= Quaternion.Euler(0f, Input.GetAxisRaw("Mouse X") * lookSpeedX, 0f);
+        if (playerCamera != null)
+        {
+            rotationX -= Input.GetAxisRaw("Mouse Y") * lookSpeedY;
+            rotationX = Mathf.Clamp(rotationX, -upperLookLimit, lowerLookLimit);
+            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, transform.localRotation.y, 0f);
+            transform.rotation *= Quaternion.Euler(0f, Input.GetAxisRaw("Mouse X") * lookSpeedX, 0f);
+        }
     }
 
     private void HandleJump()
@@ -146,6 +190,8 @@ public class PlayerController : MonoBehaviour
     {
         if (ShouldLowkick)
         {
+            CmdAssignAuthority(shotManager.ball.GetComponent<NetworkIdentity>());
+
             shotManager.Lowkick();
         }
     }
@@ -185,17 +231,43 @@ public class PlayerController : MonoBehaviour
         {
             currentInteractable.OnInteract();
 
-            animator.Play("Lowkick");
+            //animator.Play("Lowkick");
         }
     }
 
     private void ApplyFinalMovements()
     {
-        if (moveDirection.y > 0)
+        //if (moveDirection.y > 0)
+        //{
+        //    moveDirection.y -= gravity * Time.deltaTime;
+        //}
+
+        //transform.position += moveDirection * Time.deltaTime;
+
+
+        if (!characterController.isGrounded)
         {
             moveDirection.y -= gravity * Time.deltaTime;
         }
 
-        transform.position += moveDirection * Time.deltaTime;
+        characterController.Move(moveDirection * Time.deltaTime);
+    }
+
+    [Command]
+    public void CmdAssignAuthority(NetworkIdentity _networkIdentity)
+    {
+        // Debug.Log("Mirror Object owner set to: " + this.netIdentity);
+
+        //shotManager.ball = _networkIdentity.GetComponent<TankController>();
+
+        // so we dont assign it to same person again
+        _networkIdentity.RemoveClientAuthority();
+        _networkIdentity.AssignClientAuthority(connectionToClient);
+        //if (tankController.objectOwner != this.netIdentity)
+        //{
+        //    // commands are a good place to do additional validation/cheat checks, but these are left out for simplicity here
+
+        //    tankController.objectOwner = this.netIdentity;
+        //}
     }
 }
