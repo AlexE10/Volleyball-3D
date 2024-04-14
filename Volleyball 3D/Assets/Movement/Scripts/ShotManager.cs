@@ -1,6 +1,8 @@
+using Mirror;
+using Mirror.Examples.Pong;
 using UnityEngine;
 
-public class ShotManager : MonoBehaviour
+public class ShotManager : NetworkBehaviour
 {
     [SerializeField] private float lowkickPower;
     [SerializeField] private float upperkickPower;
@@ -12,25 +14,39 @@ public class ShotManager : MonoBehaviour
     [SerializeField] private float reflectedPointHeight;
     [SerializeField] private float pathHeightForUpperkick;
 
-    private Rigidbody ballRigidbody;
+    public Rigidbody ballRigidbody;
 
     private float previousDistance;
     private Vector3 playerPositionReflectedToNet;
 
     private void Start()
     {
-        ball = GameObject.Find("volleyball");   
-        ballRigidbody = ball.GetComponent<Rigidbody>();
-        lowkickHelper = GameObject.Find("LowkickHelper");
+        //ball = GameObject.Find("volleyball");   
+        //ballRigidbody = ball.GetComponent<Rigidbody>();
+        //lowkickHelper = GameObject.Find("LowkickHelper");
         //playerPositionReflectedToNet = transform.position;
         //playerPositionReflectedToNet.z = 0f;
         //previousDistance = Vector3.Distance(transform.position, playerPositionReflectedToNet);
     }
-
     public void Lowkick()
     {
         if (Vector3.Distance(transform.position, ball.transform.position) < lowkickRange)
         {
+            //NetworkIdentity playerNetIdentity = GetComponent<NetworkIdentity>();
+
+            //// Get the NetworkIdentity component of the ball
+            //NetworkIdentity ballNetIdentity = ball.GetComponent<NetworkIdentity>();
+
+            //// Check if the player has authority over the ball
+            //if (playerNetIdentity.connectionToClient == ballNetIdentity.connectionToClient)
+            //{
+            //    Debug.LogWarning("Player has authority over the ball!");
+            //}
+            //else
+            //{
+            //    Debug.LogWarning("Player does not have authority over the ball!");
+            //}
+
             AdaptLowkickPower();
 
             Ray viewDirectionRay = new Ray(transform.position, playerCamera.transform.forward);
@@ -41,6 +57,8 @@ public class ShotManager : MonoBehaviour
                 updatedHit -= transform.position;
 
                 ballRigidbody.AddForce(updatedHit * lowkickPower);
+
+                Debug.Log("It works");
             }
         }
     }
@@ -91,7 +109,7 @@ public class ShotManager : MonoBehaviour
 
         previousDistance = currentDistance;
 
-        Debug.Log(reflectedPointHeight);
+        //Debug.Log(reflectedPointHeight);
     }
 
     private void AdaptUpperkickPower()

@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 30c01ee6554858245822513742798e69
+  - enabled: 0
+    path: Assets/Mirror/Examples/TankTheftAuto/MirrorTankTheftAuto.unity
+    guid: cb81e0eb61ead421bbccb78028641643
   m_configObjects: {}

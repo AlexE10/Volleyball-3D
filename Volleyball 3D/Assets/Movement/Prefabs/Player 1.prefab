@@ -1306,6 +1306,7 @@ MonoBehaviour:
     m_Bits: 0
   characterController: {fileID: -6015618672337537329}
   playerCamera: {fileID: 0}
+  shotManager: {fileID: 0}
 --- !u!114 &7738939790301799031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,11 +1314,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6564065161260280509}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfdf861fb638dc447a9faf1b8831e3fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
   lowkickPower: 25
   upperkickPower: 25
   ball: {fileID: 0}
@@ -1327,6 +1331,7 @@ MonoBehaviour:
   upperkickRange: 10
   reflectedPointHeight: 50
   pathHeightForUpperkick: 0.3
+  ballRigidbody: {fileID: 0}
 --- !u!114 &2660180172977104009
 MonoBehaviour:
   m_ObjectHideFlags: 0

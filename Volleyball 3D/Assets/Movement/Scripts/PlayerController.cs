@@ -1,5 +1,7 @@
 using Mirror;
+using Mirror.Examples.TankTheftAuto;
 using UnityEngine;
+using UnityEngine.ProBuilder.Shapes;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(NetworkTransformReliable))]
@@ -74,6 +76,7 @@ public class PlayerController : NetworkBehaviour
         characterController.skinWidth = 0.02f;
         characterController.minMoveDistance = 0f;
 
+        GetComponent<ShotManager>().enabled = false;
         this.enabled = false;
     }
 
@@ -81,13 +84,20 @@ public class PlayerController : NetworkBehaviour
     {
         shotManager = GetComponent<ShotManager>();
         shotManager.ball = GameObject.FindWithTag("Ball");
+
+        Debug.Log("OnStartAuthority");
         shotManager.lowkickHelper = GameObject.FindWithTag("LowkickHelper");
+        shotManager.ballRigidbody = shotManager.ball.GetComponent<Rigidbody>();
+
+        //NetworkIdentity ballNetIdentity = shotManager.ball.GetComponent<NetworkIdentity>();
+        //ballNetIdentity.AssignClientAuthority(connectionToClient);
 
         animator = GetComponent<Animator>();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        shotManager.enabled = true;
         characterController.enabled = true;
         this.enabled = true;
     }
@@ -180,6 +190,8 @@ public class PlayerController : NetworkBehaviour
     {
         if (ShouldLowkick)
         {
+            CmdAssignAuthority(shotManager.ball.GetComponent<NetworkIdentity>());
+
             shotManager.Lowkick();
         }
     }
@@ -239,5 +251,23 @@ public class PlayerController : NetworkBehaviour
         }
 
         characterController.Move(moveDirection * Time.deltaTime);
+    }
+
+    [Command]
+    public void CmdAssignAuthority(NetworkIdentity _networkIdentity)
+    {
+        // Debug.Log("Mirror Object owner set to: " + this.netIdentity);
+
+        //shotManager.ball = _networkIdentity.GetComponent<TankController>();
+
+        // so we dont assign it to same person again
+        _networkIdentity.RemoveClientAuthority();
+        _networkIdentity.AssignClientAuthority(connectionToClient);
+        //if (tankController.objectOwner != this.netIdentity)
+        //{
+        //    // commands are a good place to do additional validation/cheat checks, but these are left out for simplicity here
+
+        //    tankController.objectOwner = this.netIdentity;
+        //}
     }
 }
