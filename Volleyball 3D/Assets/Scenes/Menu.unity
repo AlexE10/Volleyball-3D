@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641275, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -512,6 +512,7 @@ GameObject:
   - component: {fileID: 1251388743}
   - component: {fileID: 1251388742}
   - component: {fileID: 1251388741}
+  - component: {fileID: 1251388744}
   m_Layer: 5
   m_Name: StartGameButton
   m_TagString: Untagged
@@ -583,16 +584,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1124797715}
-        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: OnStartGameClick
-        m_Mode: 1
+      - m_Target: {fileID: 1251388744}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: SwitchCharacterScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1251388742
@@ -633,6 +634,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1251388739}
   m_CullTransparentMesh: 1
+--- !u!114 &1251388744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1251388739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b0b7c455aca13469fb299945719c89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1301666136
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,6 +768,7 @@ GameObject:
   - component: {fileID: 1588111194}
   - component: {fileID: 1588111193}
   - component: {fileID: 1588111192}
+  - component: {fileID: 1588111195}
   m_Layer: 5
   m_Name: HowToPlayButton
   m_TagString: Untagged
@@ -826,16 +840,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1124797715}
-        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
-        m_MethodName: OnHowToPlayClick
-        m_Mode: 1
+      - m_Target: {fileID: 1588111195}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: HowToPlay
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1588111193
@@ -876,6 +890,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588111190}
   m_CullTransparentMesh: 1
+--- !u!114 &1588111195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588111190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b0b7c455aca13469fb299945719c89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1644701520
 GameObject:
   m_ObjectHideFlags: 0
