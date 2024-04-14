@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShotManager : NetworkBehaviour
 {
+    [SyncVar] private uint lastPlayerId = 0;
+
     [SerializeField] private float lowkickPower;
     [SerializeField] private float upperkickPower;
     [SerializeField] public GameObject ball;
@@ -28,51 +30,57 @@ public class ShotManager : NetworkBehaviour
         //playerPositionReflectedToNet.z = 0f;
         //previousDistance = Vector3.Distance(transform.position, playerPositionReflectedToNet);
     }
-    public void Lowkick()
+    public void Lowkick(uint playerId)
     {
+        if (playerId == lastPlayerId)
+        {
+            Debug.Log("Cannot hit the ball twice in succession.");
+            return;
+        }
         if (Vector3.Distance(transform.position, ball.transform.position) < lowkickRange)
         {
-            //NetworkIdentity playerNetIdentity = GetComponent<NetworkIdentity>();
-
-            //// Get the NetworkIdentity component of the ball
-            //NetworkIdentity ballNetIdentity = ball.GetComponent<NetworkIdentity>();
-
-            //// Check if the player has authority over the ball
-            //if (playerNetIdentity.connectionToClient == ballNetIdentity.connectionToClient)
-            //{
-            //    Debug.LogWarning("Player has authority over the ball!");
-            //}
-            //else
-            //{
-            //    Debug.LogWarning("Player does not have authority over the ball!");
-            //}
-
+            ballRigidbody.useGravity = true;
             AdaptLowkickPower();
 
-            Ray viewDirectionRay = new Ray(transform.position, playerCamera.transform.forward);
-            if (lowkickHelper.GetComponent<BoxCollider>().Raycast(viewDirectionRay, out RaycastHit hit, Mathf.Infinity))
-            {
-                Vector3 updatedHit = hit.point;
-                updatedHit.y = reflectedPointHeight;
-                updatedHit -= transform.position;
+            Vector3 directionToBall = (ball.transform.position - transform.position).normalized;
+            float forceMagnitude = lowkickPower;
+            Vector3 forceVector = directionToBall * forceMagnitude + Vector3.up * (forceMagnitude * 0.3f); 
 
-                ballRigidbody.AddForce(updatedHit * lowkickPower);
+            ballRigidbody.velocity = Vector3.zero;
+            ballRigidbody.AddForce(forceVector, ForceMode.Impulse);
 
-                Debug.Log("It works");
-            }
+            lastPlayerId = playerId;
+
+            Debug.Log($"Lowkick applied with force: {forceVector}");
         }
     }
 
-    public void UpperKick()
+    public void UpperKick(uint playerId)
     {
+        if (playerId == lastPlayerId)
+        {
+            Debug.Log("Cannot hit the ball twice in succession.");
+            return;
+        }
         if (Vector3.Distance(transform.position, ball.transform.position) < upperkickRange)
         {
             AdaptUpperkickPower();
 
-            Vector3 offset = new Vector3(0, 0.1f, 0);
-            Vector3 upperkickDirection = GetReflected(offset) + new Vector3(0, pathHeightForUpperkick, 0);
+            // Direction from player to ball, normalized
+            Vector3 directionToBall = (ball.transform.position - transform.position).normalized;
 
-            ballRigidbody.velocity = upperkickDirection * upperkickPower;
+            // Adjustments to make the spike force more realistic
+            Vector3 spikeDirection = new Vector3(directionToBall.x, -0.3f, directionToBall.z).normalized; // Enhance horizontal direction and add downward component
+
+            float forceMagnitude = upperkickPower;
+            Vector3 forceVector = spikeDirection * forceMagnitude;
+
+            ballRigidbody.velocity = Vector3.zero;
+            ballRigidbody.AddForce(forceVector, ForceMode.Impulse);
+
+            lastPlayerId = playerId;
+
+            Debug.Log($"UpperKick applied with force: {forceVector}");
         }
     }
 
@@ -91,45 +99,13 @@ public class ShotManager : NetworkBehaviour
 
     private void AdaptLowkickPower()
     {
-        playerPositionReflectedToNet = transform.position;
-        playerPositionReflectedToNet.z = 0;
-
-        float currentDistance = Vector3.Distance(transform.position, playerPositionReflectedToNet);
-
-        if (currentDistance - previousDistance > 1)
-        {
-            reflectedPointHeight -= 2;
-            lowkickPower++;
-        }
-        else if (currentDistance - previousDistance < -1)
-        {
-            reflectedPointHeight += 2;
-            lowkickPower--;
-        }
-
-        previousDistance = currentDistance;
-
-        //Debug.Log(reflectedPointHeight);
+        float distanceToNet = Mathf.Abs(transform.position.z);
+        lowkickPower = Mathf.Clamp(lowkickPower, 10, 15); // Example clamp, adjust based on testing
     }
 
     private void AdaptUpperkickPower()
     {
-        playerPositionReflectedToNet = transform.position;
-        playerPositionReflectedToNet.z = 0;
-
-        float currentDistance = Vector3.Distance(transform.position, playerPositionReflectedToNet);
-
-        if (currentDistance - previousDistance > 1)
-        {
-            pathHeightForUpperkick += 0.1f;
-            upperkickPower--;
-        }
-        else if (currentDistance - previousDistance < -1)
-        {
-            pathHeightForUpperkick -= 0.1f;
-            upperkickPower++;   
-        }
-
-        previousDistance = currentDistance;
+        float distanceToNet = Mathf.Abs(transform.position.z); // Assuming net is along z=0
+        upperkickPower = Mathf.Clamp(upperkickPower, 15, 30); // Example clamp, adjust based on testing
     }
 }

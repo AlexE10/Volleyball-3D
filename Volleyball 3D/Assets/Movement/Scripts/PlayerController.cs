@@ -10,24 +10,29 @@ public class PlayerController : NetworkBehaviour
 {
     public static bool CanMove { get; set; } = true;
     private bool ShouldJump => Input.GetKeyDown(jumpKey);
+    private bool IsSprinting => canSprint && Input.GetKey(sprintKey);
     private bool ShouldLowkick => Input.GetKeyDown(lowkickKey);
     private bool ShouldUpperkick => Input.GetKeyDown(upperkickKey);
     private bool ShouldToogleCamera => Input.GetKeyDown(toogleCameraKey);
 
     [Header("Functional options")]
     [SerializeField] private bool canJump = true;
+    [SerializeField] private bool canSprint = true;
     [SerializeField] private bool canToogleCamera = true;
     [SerializeField] private bool canLowkicking = true;
     [SerializeField] private bool canUpperkicking = true;
 
     [Header("Controls")]
     [SerializeField] private KeyCode jumpKey = KeyCode.Space;
+    [SerializeField] private KeyCode sprintKey = KeyCode.LeftShift;
     [SerializeField] private KeyCode toogleCameraKey = KeyCode.F1;
     [SerializeField] private KeyCode lowkickKey = KeyCode.C;
     [SerializeField] private KeyCode upperkickKey = KeyCode.X;
 
     [Header("Movement parameters")]
-    [SerializeField] private float walkingSpeed = 3f;
+    [SerializeField] private float walkingSpeed = 100f;
+    [SerializeField] private float sprintSpeed = 8f;
+
 
     [Header("Look parameters")]
     [SerializeField, Range(1, 10)] private float lookSpeedX = 2f;
@@ -47,6 +52,7 @@ public class PlayerController : NetworkBehaviour
     [SerializeField] private Vector3 interactionRayPoint = default;
     [SerializeField] private float interactionDistance = default;
     [SerializeField] private LayerMask interactionLayer = default;
+
 
     private Interactable currentInteractable;
 
@@ -125,7 +131,7 @@ public class PlayerController : NetworkBehaviour
             if (canLowkicking)
             {
                 HandleLowkick();
-                //HandleInteractionCheck();
+                HandleInteractionCheck();
                 //HandleInteractionInput();
             }
             if (canUpperkicking)
@@ -150,7 +156,7 @@ public class PlayerController : NetworkBehaviour
 
     private void HandleMovementInput()
     {
-        currentInput = new Vector2(walkingSpeed * Input.GetAxisRaw("Vertical"), walkingSpeed * Input.GetAxisRaw("Horizontal"));
+        currentInput = new Vector2((IsSprinting ? sprintSpeed : walkingSpeed) * Input.GetAxisRaw("Vertical"), (IsSprinting ? sprintSpeed : walkingSpeed) * Input.GetAxisRaw("Horizontal"));
 
         float moveDirectionY = moveDirection.y;
         moveDirection = (transform.TransformDirection(Vector3.forward) * currentInput.x) + (transform.TransformDirection(Vector3.right) * currentInput.y);
@@ -192,7 +198,7 @@ public class PlayerController : NetworkBehaviour
         {
             CmdAssignAuthority(shotManager.ball.GetComponent<NetworkIdentity>());
 
-            shotManager.Lowkick();
+            shotManager.Lowkick(this.netId);
         }
     }
 
@@ -200,7 +206,9 @@ public class PlayerController : NetworkBehaviour
     {
         if (ShouldUpperkick)
         {
-            shotManager.UpperKick();
+            CmdAssignAuthority(shotManager.ball.GetComponent<NetworkIdentity>());
+
+            shotManager.UpperKick(this.netId);
         }
     }
 

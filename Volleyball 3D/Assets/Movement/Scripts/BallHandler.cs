@@ -1,5 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using Mirror.Examples.NetworkRoom;
+using Mirror;
 
 public class BallHandler : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class BallHandler : MonoBehaviour
 
     void Update()
     {
-      
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -22,8 +24,28 @@ public class BallHandler : MonoBehaviour
         //Rigidbody rb = GetComponent<Rigidbody>();
         //rb.velocity = Vector3.zero;
         //initialPosition = newPosition;
-        transform.position = initialPosition;
-        Rigidbody rb = GetComponent<Rigidbody>();
-        rb.velocity = Vector3.zero;
+        if (collision.collider.CompareTag("Ground"))
+        {
+            var startPositions = NetworkManager.startPositions;
+
+            if (startPositions.Count < 2)
+            {
+                Debug.LogError("Insufficient Network Start Positions set. At least 2 required.");
+                return;
+            }
+
+            int lastSpawnIndex = NetworkRoomManagerExt.singleton.lastUsedSpawnIndex;
+            int spawnIndex = (lastSpawnIndex + 1) % 2;  // This should correctly toggle between 0 and 1
+
+            Debug.Log($"Old Index: {lastSpawnIndex}, New Index: {spawnIndex}");
+            Debug.Log($"Moving to position: {startPositions[spawnIndex].position}");
+
+            
+            transform.position = startPositions[spawnIndex].position;
+            NetworkRoomManagerExt.singleton.lastUsedSpawnIndex = spawnIndex;
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.velocity = Vector3.zero;
+            rb.useGravity = false;
+        }
     }
 }

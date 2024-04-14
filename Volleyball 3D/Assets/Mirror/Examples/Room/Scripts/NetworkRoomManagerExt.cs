@@ -10,6 +10,7 @@ namespace Mirror.Examples.NetworkRoom
     [AddComponentMenu("")]
     public class NetworkRoomManagerExt : NetworkRoomManager
     {
+        public int lastUsedSpawnIndex = 0;
         [Header("Spawner Setup")]
         [Tooltip("Reward Prefab for the Spawner")]
         public GameObject rewardPrefab;
@@ -23,7 +24,7 @@ namespace Mirror.Examples.NetworkRoom
         {
             // spawn the initial batch of Rewards
             if (sceneName == GameplayScene)
-                Spawner.SpawnBall();
+                Spawner.SpawnBallRandom();
         }
 
         /// <summary>

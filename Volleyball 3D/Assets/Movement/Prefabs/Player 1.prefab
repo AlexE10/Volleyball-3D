@@ -1283,14 +1283,17 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0
   canJump: 1
+  canSprint: 1
   canToogleCamera: 1
   canLowkicking: 1
   canUpperkicking: 1
   jumpKey: 32
+  sprintKey: 304
   toogleCameraKey: 282
   lowkickKey: 99
   upperkickKey: 120
-  walkingSpeed: 3
+  walkingSpeed: 9
+  sprintSpeed: 15
   lookSpeedX: 2
   lookSpeedY: 2
   upperLookLimit: 96
